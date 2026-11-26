@@ -7,3 +7,8 @@ rustflags = ["-C", "target-cpu=x86-64-v2"]
 [target.x86_64-pc-windows-gnu]
 linker = "x86_64-w64-mingw32-gcc"
 rustflags = ["-C", "target-cpu=x86-64-v2"]
+
+[target.aarch64-linux-android]
+# Advanced SIMD (NEON) is part of the Android AArch64 baseline. Keep the
+# target on baseline ARM64 rather than enabling optional DotProd extensions.
+rustflags = ["-C", "target-feature=+neon"]
